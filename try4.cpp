@@ -22,6 +22,10 @@ std::pair<int, int> findTwoSum(const std::vector<int>& list, int sum)
             a.first = i;
             break;
         }
+        if(list[i]*2==sum)
+        {
+            a.first = i;
+        }
     
     }
     for (int i = (a.first+1); i <list.size(); i++)
@@ -33,6 +37,10 @@ std::pair<int, int> findTwoSum(const std::vector<int>& list, int sum)
             std::cout<<i;
             break;
         }
+    }
+    if(a.second == -1)
+    {
+        a.first = -1;
     }
     return a;
 }
