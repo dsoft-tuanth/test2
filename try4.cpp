@@ -8,16 +8,30 @@ std::pair<int, int> findTwoSum(const std::vector<int>& list, int sum)
     std::pair<int, int> a;
     a.first = -1;
     a.second = -1;
-    for (int i = 0; i < list.size()-1; i++)
+    std::set<int> check1;
+    for (int i = 0; i < list.size(); i++)
     {
-        for(int  j = i+1;j<list.size(); j++)
+        check1.insert(list[i]);
+    }
+
+    for(int i = 0;i < list.size(); i++)
+    {
+    
+        if(check1.find(sum - list[i])!=check1.end())
         {
-            if(list[i]+list[j]== sum)
-            {
-                a.first = i;
-                a.second = j;
-                return a;
-            }
+            a.first = i;
+            break;
+        }
+    
+    }
+    for (int i = (a.first+1); i <list.size(); i++)
+    {
+
+        if(list[a.first]==sum-list[i]){
+            
+            a.second = i;
+            std::cout<<i;
+            break;
         }
     }
     return a;
