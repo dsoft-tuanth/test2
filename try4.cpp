@@ -15,7 +15,7 @@ std::pair<int, int> findTwoSum(const std::vector<int>& list, int sum)
             if(list[i]+list[j]== sum)
             {
                 a.first = i;
-                a.second = i;
+                a.second = j;
                 return a;
             }
         }
